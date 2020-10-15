@@ -1,0 +1,38 @@
+/*Making all of the body use the "Arial" font family*/
+body{
+	font-family: Arial;
+}
+
+/*CSS for the main title*/
+#mainTitle{
+	width: 100%;
+	text-align: center;
+}
+
+/*CSS for the form*/
+#mainForm{
+	padding: 10px;
+	text-align: center;
+}
+
+/*Modifying the bottom to make it look better using its ID. Including adding a gradient for the button*/
+#submitButton{
+	margin: 10px;
+	width: 150px;
+	height: 40px;
+	border-style: none;
+	border-radius: 20px;
+	background-image: linear-gradient(to bottom right, #5F0A86, #A4508A);
+	color: white;
+}
+
+
+/*Modifying the CSS for the input boxes using a class*/
+.inputData{
+	height: 20px;
+	width: 200px;
+	border-radius: 20px;
+	border-style: solid;
+	border-color: #e0e0e0;
+	border-width: thin;
+}

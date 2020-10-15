@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<!--
+		Author: Varghese Charly
+		Date: 10/15/2020
+		Purpose: The purpose of this webpage is to ask the user to input their first name, last name, and email. The page also contains a button. The styling for the page is pulled from styles.css. Additionally, inline JavaScript is used verify that a first name, last name, and email are inputted. Additionally, the JavaScript ensures that the email entered is representative of an email address. 
+	-->
+
+	<!--Title of the tab-->
+	<title>Varghese Charly & Co.</title>
+	
+	<!--Linking the CSS stylesheet to the HTML-->
+	<link rel="stylesheet" type="text/css" href="styles.css">
+</head>
+<body>
+	<!--Creating a "mainTitle" division incase I need to specify it later, such as using it in CSS-->
+	<div id="mainTitle">
+		<!--Main header with emphasis on the company name-->
+		<h1><em>Varghese Charly & Co.</em> - Customer Information</h1>
+	</div>
+	
+	<!--A new division with the id "mainForm" incase I need to reference it later, especially in the CSS-->
+	<div id="mainForm">
+		<!--Starting a script block to store the Javascript-->
+		<script type="text/javascript">
+			// Starting a function to validate the values inputted
+			function validateForm() {
+				// Grabbing the values from the input boxes and assigning them to their own variables
+					var fname = document.forms["infoForm"]["firstName"].value;
+					var lname = document.forms["infoForm"]["lastName"].value;
+					var email = document.forms["infoForm"]["email"].value;
+				
+				// Assigning a variable for the regex that I made so ensure that the email inputted by the user is somewhat representative of a real email address.
+					var emailRegex = /.*\@.*\.[a-zA-Z\.]{1,}/;
+				
+				// If statement checks to see if the fields have been filled in using the values of the variables. If not, the user is given an alert to fill in all of the fields. 
+					if (fname == "" || lname == "" || email == "") {
+						alert("Please ensure that your first name, last name, and email address are filled in.");
+					}
+				
+				// If the previously if statement passes, it will go on to this else if statement. This statement ensure that the email variable matches the regex specified earlier. If it does not match, an alert is sent to notify the user to ensure that they are entering a valid email address.
+					else if (emailRegex.test(email) != true) {
+						alert("Please ensure that you are entering a valid email address.");
+					}
+				}
+		</script>
+		<!--Starting a form element. The element with run the function "" when the form is submitted using the submit button.-->
+		<form name="infoForm" onsubmit="validateForm()">
+			<!--Creating three labels and three inputs for the required inputs. Names and classes are used for future reference if needed (Good practice). Breaks are used to for new lines between new elements-->
+			<label for="firstName">First Name: </label><br><input type="text" name="firstName" class="inputData"><br>
+			<label for="lastName">Last Name: </label><br><input type="text" name="lastName" class="inputData"><br>
+			<label for="email">Email Address: </label><br><input type="text" name="email" class="inputData"><br>
+			
+			<!--Submit button with an id of "submitButton" for reference in CSS. This will be the submit button for the form-->
+			<input type="submit" name="submitButton" id="submitButton" value="Submit Data">	
+		<!--form end-->
+		</form>
+	<!--division end-->
+	</div>
+<!--body end-->
+</body>
+
+<!--html end-->
+</html>
